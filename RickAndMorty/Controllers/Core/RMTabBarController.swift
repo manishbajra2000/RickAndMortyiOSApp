@@ -14,6 +14,9 @@ final class RMTabBarController: UITabBarController {
         setUpTabs()
     }
     
+    
+    
+    
     private func setUpTabs(){
         let charactersVC = RMCharacterViewController()
         let locationsVC = RMLocationViewController()
@@ -34,6 +37,14 @@ final class RMTabBarController: UITabBarController {
         nav2.tabBarItem = UITabBarItem(title: "Locations", image: UIImage(systemName: "globe"), tag: 2)
         nav3.tabBarItem = UITabBarItem(title: "Episodes", image: UIImage(systemName: "tv"), tag: 3)
         nav4.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), tag: 4)
+        
+        
+        
+        
+        
+        
+        
+        
         
         for nav in [nav1, nav2, nav3, nav4]{
             nav.navigationBar.prefersLargeTitles = true
