@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// Primary API service obbhect to get Rick and Morty data
+/// Primary API service object to get Rick and Morty data
 final class RMService{
     
     /// Shared singleton instance
