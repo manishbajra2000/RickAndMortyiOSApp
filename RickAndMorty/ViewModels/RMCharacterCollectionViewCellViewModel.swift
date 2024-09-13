@@ -27,10 +27,25 @@ final class RMCharacterCollectionViewCellViewModel {
     }
     
     public var characterStatusText: String{
-        return characterStatus.rawValue
-    }
+        return "Status: \(characterStatus.text )"
+    }         
     
-    public func fetchImage (completion: @escaping (Result<Data, Error>) -> Void) {
-        
+    public func fetchImage (completion: @escaping (Result<Data, Error>) -> Void) {       //escaping will escape the callback of another async job
+        //TODO: Abstract to Image Manager
+        guard let url = characterImageUrl else {
+            completion(.failure(URLError(.badURL)))
+            return
+        }
+         
+        let request = URLRequest(url: url)
+        let task = URLSession.shared.dataTask(with: request) { data, _, error in
+            guard let data = data, error == nil else {
+                completion(.failure(error ?? URLError(.badServerResponse)))
+                return
+                
+            }
+            completion(.success(data))
+        }
+        task.resume()
     }
 }
